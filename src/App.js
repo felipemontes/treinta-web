@@ -1,4 +1,3 @@
-import "./App.css";
 import fire from "./fire";
 import React, { useState, useEffect } from "react";
 import Login from "./components/Login";
