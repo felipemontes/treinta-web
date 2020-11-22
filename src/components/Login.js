@@ -8,7 +8,7 @@ const Login = (props) => {
     password,
     setPassword,
     handleLogin,
-    handleSingup,
+    handleSignup,
     hasAccount,
     setHasAccount,
     emailError,
@@ -19,9 +19,9 @@ const Login = (props) => {
     <section className="login">
       <div className="loginContainer">
         <div className="loginIcon">
-          <i class="glyphicon glyphicon-user"></i>
+          <i className="glyphicon glyphicon-user"></i>
         </div>
-        <label>Usuario</label>
+        <label>Email</label>
         <input
           type="text"
           autoFocus
@@ -35,7 +35,7 @@ const Login = (props) => {
           type="password"
           required
           value={password}
-          onChange={(e) => setPassword(e.target.password)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <p className="errorMsg">{passwordError}</p>
         <div className="btnContainer">
@@ -51,7 +51,7 @@ const Login = (props) => {
             </>
           ) : (
             <>
-              <button onClick={handleSingup}>Crear cuenta</button>
+              <button onClick={handleSignup}>Crear cuenta</button>
               <p>
                 Tienes cuenta?
                 <span onClick={() => setHasAccount(!hasAccount)}>Ingresar</span>
