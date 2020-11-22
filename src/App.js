@@ -1,92 +1,103 @@
-import './App.css';
-import fire from './fire';
-import React, {useState, useEffect } from 'react';
+import "./App.css";
+import fire from "./fire";
+import React, { useState, useEffect } from "react";
+import Login from "./components/Login";
 
 const App = () => {
-
-  const [user, setUser] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [hasAccount, setHasAccount] = useState(false);
 
-  const clearInputs = () =>{
-    setEmail('');
-    setPassword('');
-  }
+  const clearInputs = () => {
+    setEmail("");
+    setPassword("");
+  };
 
-  const clearErrors = () =>{
-    setEmailError('');
-    setPasswordError('');
-  }
+  const clearErrors = () => {
+    setEmailError("");
+    setPasswordError("");
+  };
 
-  const handleLogin = () =>{
+  const handleLogin = () => {
     clearErrors();
     fire
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .cath(err =>{
-      switch(err.code){
-        case "auth/invalid-email":
-          break;
-        case "auth/user-disabled":
-          break;
-        case "auth/user-not-found":
-          setEmailError(err.message);
-          break;
-        case "auth/wrong-password":
-          setPasswordError(err.message);
-          break;
-        default:
-          break;
-      }
-    })
-  }
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .cath((err) => {
+        switch (err.code) {
+          case "auth/invalid-email":
+            break;
+          case "auth/user-disabled":
+            break;
+          case "auth/user-not-found":
+            setEmailError(err.message);
+            break;
+          case "auth/wrong-password":
+            setPasswordError(err.message);
+            break;
+          default:
+            break;
+        }
+      });
+  };
 
-  const handleSingup = () =>{
+  const handleSignup = () => {
     clearErrors();
     fire
-    .auth()
-    .createUserWithEmailAndPassword(email, password)
-    .cath(err =>{
-      switch(err.code){
-        case "auth/email-already-in-use":
-          break;
-        case "auth/ivalid-email":
-          setEmailError(err.message);
-          break;
-        case "auth/weak-password":
-          setPasswordError(err.message);
-          break;
-        default:
-          break;
-      }
-    })
-  }
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .cath((err) => {
+        switch (err.code) {
+          case "auth/email-already-in-use":
+            break;
+          case "auth/ivalid-email":
+            setEmailError(err.message);
+            break;
+          case "auth/weak-password":
+            setPasswordError(err.message);
+            break;
+          default:
+            break;
+        }
+      });
+  };
 
-  const handleLogout = () =>{
+  const handleLogout = () => {
     fire.auth().signOut();
   };
 
-  const authListener = () =>{
-    fire.auth().onAuthStateChanged(user => {
-      if(user){
+  const authListener = () => {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
         clearInputs();
         setUser(user);
       } else {
-        setUser('')
+        setUser("");
       }
-    })
-  }
+    });
+  };
 
-  useEffect(() =>{
-    authListener()
-  }, [])
+  useEffect(() => {
+    authListener();
+  }, []);
 
   return (
-    <h1>Hello world!</h1>
+    <Login
+      email={email}
+      setEmail={setEmail}
+      password={password}
+      setPassword={setPassword}
+      handleLogin={handleLogin}
+      handleSingup={handleSignup}
+      hasAccount={hasAccount}
+      setHasAccount={setHasAccount}
+      emailError={emailError}
+      passwordError={passwordError}
+    />
   );
-}
+};
 
 export default App;
