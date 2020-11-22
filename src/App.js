@@ -1,6 +1,7 @@
 import fire from "./fire";
 import React, { useState, useEffect } from "react";
 import Login from "./components/Login";
+import Admin from "./components/Admin";
 
 const App = () => {
   const [user, setUser] = useState("");
@@ -25,7 +26,7 @@ const App = () => {
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .cath((err) => {
+      .catch((err) => {
         switch (err.code) {
           case "auth/invalid-email":
             break;
@@ -48,7 +49,7 @@ const App = () => {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .cath((err) => {
+      .catch((err) => {
         switch (err.code) {
           case "auth/email-already-in-use":
             break;
@@ -84,18 +85,24 @@ const App = () => {
   }, []);
 
   return (
-    <Login
-      email={email}
-      setEmail={setEmail}
-      password={password}
-      setPassword={setPassword}
-      handleLogin={handleLogin}
-      handleSingup={handleSignup}
-      hasAccount={hasAccount}
-      setHasAccount={setHasAccount}
-      emailError={emailError}
-      passwordError={passwordError}
-    />
+    <div>
+      {user ? (
+        <Admin handleLogout={handleLogout} />
+      ) : (
+        <Login
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          handleLogin={handleLogin}
+          handleSignup={handleSignup}
+          hasAccount={hasAccount}
+          setHasAccount={setHasAccount}
+          emailError={emailError}
+          passwordError={passwordError}
+        />
+      )}
+    </div>
   );
 };
 
