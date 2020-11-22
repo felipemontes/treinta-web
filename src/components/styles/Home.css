@@ -1,23 +1,23 @@
-.admin {
+.home {
   width: 100%;
   min-height: 100vh;
   background: white;
 }
 
-.admin nav {
+.home nav {
   background: white;
   width: 100%;
-  padding: 20px 40px;
+  padding: 5px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.admin nav h2 {
+.home nav h2 {
   color: #fed209;
 }
 
-.admin nav button {
+.home nav button {
   width: 86px;
   padding: 8px 0;
   background: #fed209;

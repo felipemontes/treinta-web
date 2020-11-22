@@ -1,7 +1,7 @@
 import fire from "./fire";
 import React, { useState, useEffect } from "react";
 import Login from "./components/Login";
-import Admin from "./components/Admin";
+import Home from "./components/Home";
 
 const App = () => {
   const [user, setUser] = useState("");
@@ -87,7 +87,7 @@ const App = () => {
   return (
     <div>
       {user ? (
-        <Admin handleLogout={handleLogout} />
+        <Home handleLogout={handleLogout} />
       ) : (
         <Login
           email={email}
