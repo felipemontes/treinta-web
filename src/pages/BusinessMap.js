@@ -1,15 +1,14 @@
 import React from "react";
 import Map from "../components/Map.js";
 import credentials from "../credentials";
+import "./css/BusinessMap.css";
 
 const mapURL = `https://maps.googleapis.com/maps/api/js?=3.exp&key=${credentials.mapsKey}`;
 
 const BusinessMap = () => {
   return (
     <div>
-      <h1 style={{ textAlign: "center", color: "#fed209" }}>
-        Mapa de negocios
-      </h1>
+      <h1 className="mapTitle">Mapa de negocios</h1>
       <Map
         googleMapURL={mapURL}
         containerElement={<div style={{ height: "600px" }} />}

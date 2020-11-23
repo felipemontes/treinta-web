@@ -18,9 +18,9 @@ button {
   display: flex;
 }
 
-.loginIcon {
-  text-align: center;
-  font-size: 45px;
+.loginImg {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .login .loginContainer {

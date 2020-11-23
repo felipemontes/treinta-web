@@ -18,9 +18,13 @@ const Login = (props) => {
   return (
     <section className="login">
       <div className="loginContainer">
-        <div className="loginIcon">
-          <i className="glyphicon glyphicon-user"></i>
-        </div>
+        <img
+          src="https://www.treinta.co/wp-content/uploads/2020/08/treinta-logo-yellow-gmail-1.png"
+          width="160"
+          height="60"
+          alt="logo"
+          className="loginImg"
+        ></img>
         <label>Email</label>
         <input
           type="text"
@@ -41,20 +45,20 @@ const Login = (props) => {
         <div className="btnContainer">
           {hasAccount ? (
             <>
+              <button onClick={handleSignup}>Crear cuenta</button>
+              <p>
+                Tienes cuenta?
+                <span onClick={() => setHasAccount(!hasAccount)}>Ingresar</span>
+              </p>
+            </>
+          ) : (
+            <>
               <button onClick={handleLogin}>Ingresar</button>
               <p>
                 No tienes cuenta?
                 <span onClick={() => setHasAccount(!hasAccount)}>
                   Crear cuenta
                 </span>
-              </p>
-            </>
-          ) : (
-            <>
-              <button onClick={handleSignup}>Crear cuenta</button>
-              <p>
-                Tienes cuenta?
-                <span onClick={() => setHasAccount(!hasAccount)}>Ingresar</span>
               </p>
             </>
           )}

@@ -3,7 +3,6 @@ import { Navbar as NavB, Nav, Button } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import About from "../pages/About";
 import BusinessMap from "../pages/BusinessMap";
-import Home from "../pages/Home";
 import "./styles/Navbar.css";
 
 const Navbar = ({ handleLogout }) => {
@@ -20,9 +19,9 @@ const Navbar = ({ handleLogout }) => {
           <NavB.Brand href="#home">
             <img
               src="https://www.treinta.co/wp-content/uploads/2020/08/treinta-logo-yellow-gmail-1.png"
-              width="90"
-              height="40"
-              className="d-inline-block align-top"
+              width="160"
+              height="60"
+              className="d-inline-block align-top logo"
               alt="React Bootstrap logo"
             />
           </NavB.Brand>
@@ -33,7 +32,12 @@ const Navbar = ({ handleLogout }) => {
               <Nav.Link href="/map">Mapa</Nav.Link>
             </Nav>
             <Nav>
-              <Button variant="warning" size="sm" onClick={handleLogout}>
+              <Button
+                className="logout"
+                variant="warning"
+                size="sm"
+                onClick={handleLogout}
+              >
                 Logout
               </Button>
             </Nav>
