@@ -83,3 +83,8 @@ button {
   color: red;
   font-size: 16px;
 }
+
+.loginBtn {
+  color: #000000;
+  font-weight: 600;
+}

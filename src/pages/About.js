@@ -6,17 +6,24 @@ const About = () => {
   return (
     <>
       <div className="about-section">
-        <img src="https://www.treinta.co/wp-content/uploads/2020/09/DobleScreen.png"></img>
-        <h1>Treinta - ¡Aplicación financiera gratuita!</h1>
-        <p>
-          Gestiona las transacciones de tu negocio, conoce la utilidad de tu
-          negocio en cualquier momento y registra y cobra deudas 3 veces más
-          eficazmente.
-        </p>
-        <p>
-          Ayuda a tu negocio a crecer más con Treinta, la aplicación financiera
-          gratuita. ¡Treinta es gratis, seguro y fácil de usar!
-        </p>
+        <div className="app-screen">
+          <img
+            src="https://www.treinta.co/wp-content/uploads/2020/09/DobleScreen.png"
+            alt="app"
+          ></img>
+        </div>
+        <div>
+          <h1>Treinta - ¡Aplicación financiera gratuita!</h1>
+          <p>
+            Gestiona las transacciones de tu negocio, conoce la utilidad de tu
+            negocio en cualquier momento y registra y cobra deudas 3 veces más
+            eficazmente.
+          </p>
+          <p>
+            Ayuda a tu negocio a crecer más con Treinta, la aplicación
+            financiera gratuita. ¡Treinta es gratis, seguro y fácil de usar!
+          </p>
+        </div>
       </div>
       <h1 className="title">Descubre las ventajas de usar Treinta</h1>
       <div className="row">

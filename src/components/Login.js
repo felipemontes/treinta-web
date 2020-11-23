@@ -45,7 +45,7 @@ const Login = (props) => {
         <div className="btnContainer">
           {hasAccount ? (
             <>
-              <button onClick={handleSignup}>Crear cuenta</button>
+              <button className="loginBtn" onClick={handleSignup}>Crear cuenta</button>
               <p>
                 Tienes cuenta?
                 <span onClick={() => setHasAccount(!hasAccount)}>Ingresar</span>
@@ -53,7 +53,7 @@ const Login = (props) => {
             </>
           ) : (
             <>
-              <button onClick={handleLogin}>Ingresar</button>
+              <button className="loginBtn" onClick={handleLogin}>Ingresar</button>
               <p>
                 No tienes cuenta?
                 <span onClick={() => setHasAccount(!hasAccount)}>

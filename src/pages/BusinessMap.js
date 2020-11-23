@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 import Map from "../components/Map.js";
 import credentials from "../credentials";
 import "./css/BusinessMap.css";
